@@ -54,13 +54,13 @@ int main() {
 
     while (getline(inputFile, line)) {
         Movie movie;
-        movie.setTitle(line);
+        movie.setScreenwriter(line);
 
         getline(inputFile, line);
         movie.setYearReleased(stoi(line));
 
         getline(inputFile, line);
-        movie.setScreenwriter(line);
+        movie.setTitle(line);
 
         movies.push_back(movie);        
     }
