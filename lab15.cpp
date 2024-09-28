@@ -50,38 +50,24 @@ int main() {
     // Movie vector to hold movies.
     vector<Movie> movies;
 
-    // Step 0: add title, Step 1: add year released, Step 2: add screenwriter.
-    int step = 0;
+    string line;
 
-    Movie movie;
+    while (getline(inputFile, line)) {
+        Movie movie;
+        movie.setTitle(line);
 
-    bool readingInput = true;
+        getline(inputFile, line);
+        movie.setYearReleased(stoi(line));
 
-    while (readingInput) {
-        
+        getline(inputFile, line);
+        movie.setScreenwriter(line);
 
-        switch (step) {
-        case 0:
-            string title;
-            if (inputFile >> title) {
-                movie.setTitle(title);
-            } else {
-                readingInput = false;
-            }
-        case 1:
-            int yearReleased;
-            if (inputFile >> yearReleased) {
-                movie.setYearReleased(yearReleased);
-            } else {
-                readingInput = false;
-            }
-        case 2:
-            
-        }
-
-        step++;
+        movies.push_back(movie);        
     }
 
+    for (int i = 0; i < movies.size(); i++) {
+        movies[i].print();
+    }
 
     return 0;
 }
