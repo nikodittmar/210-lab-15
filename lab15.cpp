@@ -47,9 +47,40 @@ int main() {
         return 1;
     }
 
+    // Movie vector to hold movies.
     vector<Movie> movies;
 
+    // Step 0: add title, Step 1: add year released, Step 2: add screenwriter.
+    int step = 0;
 
+    Movie movie;
+
+    bool readingInput = true;
+
+    while (readingInput) {
+        
+
+        switch (step) {
+        case 0:
+            string title;
+            if (inputFile >> title) {
+                movie.setTitle(title);
+            } else {
+                readingInput = false;
+            }
+        case 1:
+            int yearReleased;
+            if (inputFile >> yearReleased) {
+                movie.setYearReleased(yearReleased);
+            } else {
+                readingInput = false;
+            }
+        case 2:
+            
+        }
+
+        step++;
+    }
 
 
     return 0;
